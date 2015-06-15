@@ -1,6 +1,9 @@
 div(ng-controller='postsCtrl')
   h1 Hello{{name}}
   div(ng-repeat='p in posts')
-    p {{p.body}}
+    p body:{{p.body}}
+    p channel:{{p.channel}}
   p {{channels}}
+  p {{posts}}
   button(ng-click='addPost()')
+  button(ng-click='addChannel()')
