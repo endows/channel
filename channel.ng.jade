@@ -1,7 +1,10 @@
 div
-  p hello {{greet}}
-  p {{posts}}
-  p {{users}}
-  p {{userChannels}}
+  p Posts:{{posts}}
+  p Users:{{users}}
+  p UserChannel:{{userChannels}}
+  p create UserChannel
   input(ng-model='new_channel')
   button(ng-click='createUserChannel(new_channel)')
+  p create Post
+  input(ng-model='new_post')
+  button(ng-click='createPost(new_post)')

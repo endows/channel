@@ -19,6 +19,7 @@ if Meteor.isClient
 
     $scope.greet = 'hello'
     $scope.new_channel = ''
+    $scope.new_post = ''
     $scope.posts = $meteor.collection(Posts)
     $scope.userChannels = $meteor.collection(UserChannels)
     $scope.users = $meteor.collection(Users)
@@ -26,5 +27,8 @@ if Meteor.isClient
       $scope.userChannels.push
         name:channel
         user:$rootScope.currentUser._id
-      return
+    $scope.createPost = (post)->
+      $scope.posts.push
+        body:post
+        channel:$scope.userChannels[0]._id
     ])
