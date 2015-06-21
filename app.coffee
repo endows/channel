@@ -1,24 +1,18 @@
-
 if Meteor.isClient
   angular.module('channel', [ 'angular-meteor' , 'ui.router'])
+  .controller('postsCtrl',['$scope','$meteor','$rootScope','$stateParams', ($scope,$meteor,$rootScope,$stateParams) ->
 
-  angular.module('channel').config [
-    '$urlRouterProvider'
-    '$stateProvider'
-    '$locationProvider'
-    ($urlRouterProvider, $stateProvider, $locationProvider) ->
-      $locationProvider.html5Mode true
-      $stateProvider
-      .state 'channel',
-        url: '/channel'
-        templateUrl: 'channel.html'
-        controller: 'postsCtrl'
-  ]
-
-  angular.module('channel').controller('postsCtrl',['$scope','$meteor', ($scope,$meteor) ->
-      $scope.greet = 'hello'
-      $scope.posts = $meteor.collection(Posts)
-      $scope.channels = $meteor.collection(Channels)
-      $scope.users = $meteor.collection(Users)
-      return
+    $scope.new_channel = ''
+    $scope.new_post = ''
+    $scope.posts = $meteor.collection(Posts)
+    $scope.userChannels = $meteor.collection(UserChannels)
+    $scope.users = $meteor.collection(Users)
+    $scope.createUserChannel = (channel)->
+      $scope.userChannels.push
+        name:channel
+        user:$rootScope.currentUser._id
+    $scope.createPost = (post)->
+      $scope.posts.push
+        body:post
+        channel:$stateParams._id
     ])
