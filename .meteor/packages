@@ -12,3 +12,4 @@ coffeescript
 accounts-ui
 accounts-twitter
 angularui:angular-ui-router
+twbs:bootstrap
