@@ -5,5 +5,5 @@ Posts._transform = (post)->
   post
 root.Posts = Posts
 if Meteor.isServer
-  Meteor.publish 'posts',->
-    Posts.find()
+  Meteor.publish 'posts',(channel_id)->
+    Posts.find({channel:channel_id})

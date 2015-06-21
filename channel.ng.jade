@@ -1,3 +1,9 @@
 div
   h1 {{current_channel.user.name}}/{{current_channel.name}}
   h1 {{current_channel.user}}
+  div(ng-repeat='p in posts')
+    p {{p.body}}
+    p {{p.channel}}
+  p create Post
+    input(ng-model='new_post')
+    button(ng-click='createPost(new_post)')
