@@ -1,5 +1,8 @@
-<body>
-  <ng-include ng-app='channel' src="'channel.html'"></ng-include>
+<head>
+  <base href="/">
+</head>
+<body ng-app='channel'>
+  <!-- <ng-include ng-app='channel' src="'channel.html'"></ng-include> -->
   <div ui-view></div>
   {{> loginButtons}}
 </body>
