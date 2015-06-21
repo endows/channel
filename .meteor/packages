@@ -10,3 +10,5 @@ insecure
 urigo:angular
 civilframe:angular-jade
 coffeescript
+accounts-ui
+accounts-twitter

@@ -1,3 +1,3 @@
 root = exports ? this
-Users = new Meteor.Collection('users')
+Users = Meteor.users
 root.Users = Users
