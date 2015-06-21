@@ -3,4 +3,4 @@ Users = Meteor.users
 root.Users = Users
 if Meteor.isServer
   Meteor.publish 'users',->
-    Users.find()
+    Users.find({}, {fields: {'name':1,'image':1}})
