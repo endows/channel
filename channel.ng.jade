@@ -1,6 +1,7 @@
-//- div(ng-controller='postsCtrl')
 div
   p hello {{greet}}
   p {{posts}}
   p {{users}}
-  p {{channels}}
+  p {{userChannels}}
+  input(ng-model='new_channel')
+  button(ng-click='createUserChannel(new_channel)')
