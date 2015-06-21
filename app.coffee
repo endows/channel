@@ -15,7 +15,7 @@ if Meteor.isClient
         controller: 'postsCtrl'
   ]
 
-  angular.module('channel').controller('postsCtrl',['$scope','$meteor', ($scope,$meteor) ->
+  angular.module('channel').controller('postsCtrl',['$scope','$meteor','$rootScope', ($scope,$meteor,$rootScope) ->
 
     $scope.greet = 'hello'
     $scope.new_channel = ''
@@ -23,6 +23,8 @@ if Meteor.isClient
     $scope.userChannels = $meteor.collection(UserChannels)
     $scope.users = $meteor.collection(Users)
     $scope.createUserChannel = (channel)->
-      $scope.userChannels.push({name:channel})
+      $scope.userChannels.push
+        name:channel
+        user:$rootScope.currentUser._id
       return
     ])
