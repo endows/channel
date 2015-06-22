@@ -1,0 +1,6 @@
+.row
+  .col-md-push-2.col-md-8.text-center
+    img(ng-src='{{currentUser.image}}')
+    select.form-control(ng-model='current_channel' ng-options="currentUser.name + '/' + c.name for c in userChannels")
+    textarea.form-control(ng-model='new_post')
+    button.btn.btn-block.btn-primary(ng-click='createPost(new_post)') 作成
